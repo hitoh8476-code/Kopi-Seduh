@@ -493,3 +493,50 @@ document.addEventListener("click", function (e) {
   // otherwise close the cart
   closeCart();
 });
+
+
+let orderItem = "";
+let orderPrice = "";
+let orderQty = 1;
+
+function buyNow() {
+  document.getElementById("userDataModal").style.display = "flex";
+
+  orderItem = document.getElementById("modalTitle").innerText;
+  orderPrice = document.getElementById("modalPrice").innerText;
+  orderQty = parseInt(document.getElementById("qty").innerText);
+}
+
+function closeUserData() {
+  document.getElementById("userDataModal").style.display = "none";
+}
+
+function sendToWa() {
+  const name = document.getElementById("orderName").value.trim();
+  const address = document.getElementById("orderAddress").value.trim();
+
+  if (name === "" || address === "") {
+    alert("Nama dan alamat wajib diisi!");
+    return;
+  }
+
+  let priceNum = parseInt(orderPrice.replace("IDR", "").replace("k", "")) * 1000;
+  let total = priceNum * orderQty;
+
+  let message = `
+Halo Kak, saya ingin memesan:
+
+🛒 *${orderItem}*
+Jumlah: *${orderQty}*
+Harga: ${orderPrice}
+Total: *IDR ${total}*
+
+📌 *Data Pemesan*
+Nama: ${name}
+Alamat: ${address}
+  `.trim();
+
+  let waURL = "https://wa.me/6281234567890?text=" + encodeURIComponent(message);
+  window.open(waURL, "_blank");
+}
+
