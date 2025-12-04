@@ -596,5 +596,26 @@
     <div id="customAlert" class="alert-hidden">
       <p id="alertMessage"></p>
     </div>
+
+
+    ...
+<footer> ... </footer>
+
+<!-- ===== Popup Data Pemesan ===== -->
+<div id="userDataModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeUserData()">&times;</span>
+    <h2>Data Pemesan</h2>
+
+    <input type="text" id="orderName" placeholder="Nama Anda" required>
+    <input type="text" id="orderAddress" placeholder="Alamat Lengkap" required>
+
+    <button onclick="sendToWa()">Kirim Pesanan</button>
+  </div>
+</div>
+
+</body>
+</html>
+
   </body>
 </html>
