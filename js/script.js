@@ -445,31 +445,32 @@ function clearCart() {
   // close cart after clearing
   setTimeout(() => closeCart(), 500);
 }
-
 function checkout() {
   const cart = getCart();
   if (!cart || cart.length === 0) {
     showCustomAlert("Keranjang kosong");
     return;
   }
-  // Build cart summary for WhatsApp
+
+  // tampilkan modal input nama & alamat
+  document.getElementById("userDataModal").style.display = "flex";
+
+  // simpan total & detail cart untuk dikirimkan nanti
   let total = 0;
-  const lines = cart.map((it) => {
-    const priceNum = parsePriceString(it.price);
-    const lineTotal = priceNum * (it.qty || 1);
+  let summary = "";
+
+  cart.forEach((item) => {
+    const priceNum = parsePriceString(item.price);
+    const lineTotal = priceNum * item.qty;
     total += lineTotal;
-    // show qty, title and unit price on the item line; total only at bottom
-    return `${it.qty} x ${it.title} - ${it.price}`;
+
+    summary += `${item.qty} x ${item.title} - ${item.price}\n`;
   });
 
-  const message = `Halo, saya ingin memesan:\n${lines.join(
-    "\n"
-  )}\n\nTotal: ${formatCurrencyShort(
-    total
-  )}\n\nSilakan konfirmasi ketersediaan dan pengiriman.`;
-  openWhatsApp(message);
-  // clear the cart after sending order and close sidebar
-  clearCart();
+  // simpan ke variabel global agar sendToWa bisa akses
+  orderItem = summary;
+  orderPrice = formatCurrencyShort(total);
+  orderQty = 1; // tidak dipakai untuk keranjang
 }
 
 // wire cart icon
@@ -479,19 +480,98 @@ if (shoppingCartBtn) shoppingCartBtn.addEventListener("click", openCart);
 // ensure count is shown on load
 updateCartCount();
 
-// Close cart when clicking outside the cart-panel
+let orderItem = "";
+let orderPrice = "";
+let orderQty = 1;
+
+function buyNow() {
+  // buka modal input nama & alamat
+  document.getElementById("userDataModal").style.display = "flex";
+
+  // simpan detail item yang akan dikirim
+  orderItem = document.getElementById("modalTitle").innerText;
+  orderPrice = document.getElementById("modalPrice").innerText;
+
+  // BELI LANGSUNG → tidak pakai qty & total
+  orderQty = null;
+}
+
+function closeUserData() {
+  document.getElementById("userDataModal").style.display = "none";
+}
+function sendToWa() {
+  const name = document.getElementById("orderName").value.trim();
+  const address = document.getElementById("orderAddress").value.trim();
+
+  if (name === "" || address === "") {
+    alert("Nama dan alamat wajib diisi!");
+    return;
+  }
+
+  // beli langsung → tanpa jumlah & total
+  let message = `
+Halo Kak, saya ingin memesan:
+
+${orderItem}
+Harga: ${orderPrice}
+
+Data Pemesan:
+Nama: ${name}
+Alamat: ${address}
+  `.trim();
+
+  let waURL =
+    "https://wa.me/62895339069161?text=" + encodeURIComponent(message);
+  window.open(waURL, "_blank");
+
+  // kosongkan input setelah kirim pesanan
+  document.getElementById("orderName").value = "";
+  document.getElementById("orderAddress").value = "";
+
+  // hapus isi keranjang setelah pesanan terkirim
+  saveCart([]);
+  updateCartCount();
+  renderCart();
+
+  closeUserData();
+  closeModal(); // tutup popup menu
+}
+
+// ==========================
+// CLOSE CART (FINAL VERSION)
+// ==========================
 document.addEventListener("click", function (e) {
   const cartModal = document.getElementById("cartModal");
   const cartPanel = document.querySelector(".cart-panel");
   const cartBtn = document.getElementById("shopping-cart");
+  const userDataModal = document.getElementById("userDataModal");
+
+  // Cart tidak terbuka → tidak melakukan apa apa
   if (!cartModal || !cartModal.classList.contains("open")) return;
 
-  // if click is inside panel or on the cart button, do nothing
+  //  Modal checkout (nama+alamat) sedang terbuka → JANGAN tutup cart
+  if (userDataModal && userDataModal.style.display === "flex") return;
+
+  // Klik di dalam cartPanel → tetap buka
   if (cartPanel && cartPanel.contains(e.target)) return;
+
+  // Klik tombol cart → tetap buka
   if (cartBtn && cartBtn.contains(e.target)) return;
 
-  // otherwise close the cart
+  // Selain itu → tutup cart
   closeCart();
 });
 
+sendOrderBtn.addEventListener("click", () => {
+  // ... proses kirim pesanan
 
+  // Clear input
+  document.getElementById("nama").value = "";
+  document.getElementById("alamat").value = "";
+});
+
+document.getElementById("btn-kirim").addEventListener("click", () => {
+  document.getElementById("nama").value = "";
+  document.getElementById("alamat").value = "";
+  document.getElementById("nohp").value = "";
+});
