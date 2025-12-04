@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi-Seduh</title>
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="CSS/Style.css" />
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Kopi<span>Seduh</span>.</a>
+
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-button"> <i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart">
+          <i id="cart-icon" data-feather="shopping-cart"></i>
+          <span id="cartCount" class="cart-count">0</span>
+        </a>
+        <button id="cake-menu"><i data-feather="menu"></i></button>
+      </div>
+
+      <!-- search start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="Search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- search end -->
+    </nav>
+    <!-- navbar end -->
+
+    <!-- hero section start -->
+
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>Lebih Tenang dalam Satu <span>Seduhan</span></h1>
+        <p>
+          Kopi-Seduh menyajikan berbagai macam kopi dengan cita rasa terbaik
+          untuk menemani hari-hari anda
+        </p>
+        <a href="#menu" class="cta">Lihat Menu</a>
+      </main>
+    </section>
+    <!-- hero content end -->
+
+    <!-- about section start -->
+    <section id="about" class="about">
+      <h2><span>Tentang </span>Kami</h2>
+      <div class="row">
+        <div class="about-img">
+          <img src="img/kami.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Kopi<span>Seduh</span></h3>
+          <p>
+            Selamat datang di KopiSeduh, rumah bagi secangkir kopi yang diracik
+            dengan ketulusan, rasa, dan cerita. Kami percaya bahwa setiap
+            seduhan bukan hanya soal kopi, tetapi juga momen—momen untuk
+            berhenti sejenak, berbagi, atau sekadar menikmati hari. Berawal dari
+            kecintaan kami terhadap biji kopi Nusantara, KopiSeduh hadir untuk
+            menghadirkan pengalaman minum kopi yang hangat, jujur, dan
+            berkualitas. Kami memilih biji terbaik dari petani lokal,
+            mengolahnya dengan penuh perhatian, dan menyajikannya agar Anda bisa
+            merasakan karakter asli setiap daerah.
+          </p>
+          <p>
+            Di sini, Anda bukan hanya pelanggan. Anda adalah bagian dari
+            perjalanan kami dalam merayakan kopi Indonesia. Terima kasih telah
+            berkunjung. Mari menyeduh cerita bersama
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+    <!-- Menu section start -->
+    <section id="menu" class="menu">
+      <h2><span>Menu </span>Kami</h2>
+      <p>
+        Selamat datang di Menu KopiSeduh Temukan pilihan minuman dan makanan
+        terbaik kami, diseduh dan disiapkan untuk menemani harimu.
+      </p>
+      <div class="row">
+        <div class="menu-card">
+          <img
+            src="img/menu/ga.jpg"
+            alt="Es Kopi Susu Gula Aren"
+            class="menu-card-img"
+            onclick="openModal('img/menu/ga.jpg', 'Es Kopi Susu Gula Aren', 'IDR 12k')"
+          />
+          <h3 class="menu-card-title">Es Kopi Susu Gula Aren</h3>
+          <p class="menu-card-price">IDR 12k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/esp.jpg"
+            alt="Espresso"
+            class="menu-card-img"
+            onclick="openModal('img/menu/esp.jpg', 'Espresso', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Espresso</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/kc.jpg"
+            alt="Es Kopi Caramel"
+            class="menu-card-img"
+            onclick="openModal('img/menu/kc.jpg', 'Es Kopi Caramel', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Es Kopi Caramel</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/t.jpg"
+            alt="Teh Herbal"
+            class="menu-card-img"
+            onclick="openModal('img/menu/t.jpg', 'Teh Herbal', 'IDR 8k')"
+          />
+          <h3 class="menu-card-title">Teh Herbal</h3>
+          <p class="menu-card-price">IDR 8k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/hn.jpg"
+            alt="Hazelnut Latte"
+            class="menu-card-img"
+            onclick="openModal('img/menu/hn.jpg', 'Hazelnut Latte', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Hazelnut Latte</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/bc.jpg"
+            alt="Butterscotch Latte"
+            class="menu-card-img"
+            onclick="openModal('img/menu/bc.jpg', 'Butterscotch Latte', 'IDR 18k')"
+          />
+          <h3 class="menu-card-title">Butterscotch Latte</h3>
+          <p class="menu-card-price">IDR 18k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/v60 (1).jpg"
+            alt="V60 Pour Over"
+            class="menu-card-img"
+            onclick="openModal('img/menu/v60 (1).jpg', 'V60 Pour Over', 'IDR 16k')"
+          />
+          <h3 class="menu-card-title">V60 Pour Over</h3>
+          <p class="menu-card-price">IDR 16k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/japanese (1).jpg"
+            alt="Japanese Iced Coffee "
+            class="menu-card-img"
+            onclick="openModal ('img/menu/japanese (1).jpg', 'japanese iced coffe', 'IDR 12k')"
+          />
+          <h3 class="menu-card-title">Japanese Iced Coffee</h3>
+          <p class="menu-card-price">IDR 12k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/cold black (1).jpg"
+            alt="Cold Brew Black"
+            class="menu-card-img"
+            onclick="openModal('img/menu/cold black (1).jpg', 'Cold Brew Black', 'IDR 13k')"
+          />
+          <h3 class="menu-card-title">Cold Brew Black</h3>
+          <p class="menu-card-price">IDR 13k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/iced blackcream (1).jpg"
+            alt="Cold Brew Creamy"
+            class="menu-card-img"
+            onclick="openModal('img/menu/iced blackcream (1).jpg', 'Cold Brew Creamy', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Cold Brew Creamy</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/mc.jpg"
+            alt="Matcha Latte Premium"
+            class="menu-card-img"
+            onclick="openModal('img/menu/mc.jpg', 'Matcha Latte Premium', 'IDR 17k')"
+          />
+          <h3 class="menu-card-title">Matcha Latte Premium</h3>
+          <p class="menu-card-price">IDR 17k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/strawberry matcha (1).jpg"
+            alt="Strawberry Matcha"
+            class="menu-card-img"
+            onclick="openModal('img/menu/strawberry matcha (1).jpg', 'Strawberry Matcha', 'IDR 20k')"
+          />
+          <h3 class="menu-card-title">Strawberry Matcha</h3>
+          <p class="menu-card-price">IDR 20k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/cp.jpg"
+            alt="Chocolate Pudding"
+            class="menu-card-img"
+            onclick="openModal('img/menu/cp.jpg', 'Chocolate Pudding', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Chocolate Pudding</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/red velvet (1).jpg"
+            alt="Red Velvet Cream"
+            class="menu-card-img"
+            onclick="openModal('img/menu/red velvet (1).jpg', 'Red Velvet Cream', 'IDR 13k')"
+          />
+          <h3 class="menu-card-title">Red Velvet Cream</h3>
+          <p class="menu-card-price">IDR 13k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/blue ocean (1).jpg"
+            alt="Blue Ocean Soda"
+            class="menu-card-img"
+            onclick="openModal('img/menu/blue ocean (1).jpg', 'Blue Ocean Soda', 'IDR 13k')"
+          />
+          <h3 class="menu-card-title">Blue Ocean Soda</h3>
+          <p class="menu-card-price">IDR 13k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/sm.jpg"
+            alt="Strawberry Mojito"
+            class="menu-card-img"
+            onclick="openModal('img/menu/sm.jpg', 'Strawberry Mojito', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Strawberry Mojito</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/lm (1).jpg"
+            alt="Lemon Mint Mojito"
+            class="menu-card-img"
+            onclick="openModal('img/menu/lm (1).jpg', 'Lemon Mint Mojito', 'IDR 16k')"
+          />
+          <h3 class="menu-card-title">Lemon Mint Mojito</h3>
+          <p class="menu-card-price">IDR 16k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/cro (1).jpeg"
+            alt="Croffle Chocolate/Caramel"
+            class="menu-card-img"
+            onclick="openModal('img/menu/cro (1).jpeg', 'Croffle Chocolate', 'IDR 16k')"
+          />
+          <h3 class="menu-card-title">Croffle Chocolate</h3>
+          <p class="menu-card-price">IDR 16k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/rt (1).webp"
+            alt="Roti Bakar"
+            class="menu-card-img"
+            onclick="openModal('img/menu/rt (1).webp', 'Roti Bakar', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Roti Bakar</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/dn.jpg"
+            alt="Donat"
+            class="menu-card-img"
+            onclick="openModal('img/menu/dn.jpg', 'Donat', 'IDR 7k')"
+          />
+          <h3 class="menu-card-title">Donat</h3>
+          <p class="menu-card-price">IDR 7k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/fc.jpg"
+            alt="French Fries"
+            class="menu-card-img"
+            onclick="openModal('img/menu/fc.jpg', 'French Fries', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">French Fries</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/ckp.webp "
+            alt="Chicken Popcorn"
+            class="menu-card-img"
+            onclick="openModal('img/menu/ckp.webp', 'Chicken Popcorn', 'IDR 18k')"
+          />
+          <h3 class="menu-card-title">Chicken Popcorn</h3>
+          <p class="menu-card-price">IDR 18k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/pg.jpg"
+            alt="Pisang Goreng"
+            class="menu-card-img"
+            onclick="openModal('img/menu/pg.jpg', 'Pisang Goreng', 'IDR 10k')"
+          />
+          <h3 class="menu-card-title">Pisang Goreng</h3>
+          <p class="menu-card-price">IDR 10k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/br.jpg"
+            alt="Brownies"
+            class="menu-card-img"
+            onclick="openModal('img/menu/br.jpg', 'Brownies Fudge', 'IDR 11k')"
+          />
+          <h3 class="menu-card-title">Brownies Fudge</h3>
+          <p class="menu-card-price">IDR 11k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/mix.jpg"
+            alt="Mix Platter"
+            class="menu-card-img"
+            onclick="openModal('img/menu/mix.jpg', 'Mix Platter', 'IDR 20k')"
+          />
+          <h3 class="menu-card-title">Mix Platter</h3>
+          <p class="menu-card-price">IDR 20k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/ck.webp"
+            alt="Chicken Katsu"
+            class="menu-card-img"
+            onclick="openModal('img/menu/ck.webp', 'Chicken Katsu', 'IDR 20k')"
+          />
+          <h3 class="menu-card-title">Chicken Katsu</h3>
+          <p class="menu-card-price">IDR 20k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/ng.jpg"
+            alt="Nasi Goreng Butter"
+            class="menu-card-img"
+            onclick="openModal('img/menu/ng.jpg', 'Nasi Goreng Butter', 'IDR 15k')"
+          />
+          <h3 class="menu-card-title">Nasi Goreng Butter</h3>
+          <p class="menu-card-price">IDR 15k</p>
+        </div>
+        <div class="menu-card">
+          <img
+            src="img/menu/cs.jpg"
+            alt="Chicken Sandwich"
+            class="menu-card-img"
+            onclick="openModal('img/menu/cs.jpg', 'Chicken Sandwich', 'IDR 18k')"
+          />
+          <h3 class="menu-card-title">Chicken Sandwich</h3>
+          <p class="menu-card-price">IDR 18k</p>
+        </div>
+      </div>
+    </section>
+    <!-- Menu section end -->
+
+    <!-- contact section start -->
+    <section id="contact" class="contact">
+      <h2><span>Kontak </span>Kami</h2>
+      <p>
+        Hubungi Kami Kami senang mendengar dari Anda! Baik untuk pertanyaan,
+        saran, kerjasama, atau sekadar menyapa, tim KopiSeduh selalu siap
+        membantu. Silakan gunakan formulir di bawah, kirim email, atau hubungi
+        kami melalui media sosial. Setiap pesan Anda akan kami tanggapi dengan
+        cepat dan penuh perhatian, karena kepuasan dan pengalaman Anda adalah
+        prioritas kami. Mari kita ngobrol, berbagi cerita, dan menjadikan
+        KopiSeduh tempat yang lebih baik bagi semua penikmat kopi.
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18249.870946053205!2d111.09310805051409!3d-8.204502578095802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7961bc2b61a3b9%3A0xa01cdca45579ebf5!2sPacitan%2C%20Kec.%20Pacitan%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1763441430104!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+        <form id="contactForm" action="#" method="post">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input
+              type="text"
+              name="name"
+              id="contact-name"
+              placeholder="Nama"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input
+              type="email"
+              name="email"
+              id="contact-email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input
+              type="text"
+              name="phone"
+              id="contact-phone"
+              placeholder="No Hp"
+            />
+          </div>
+          <div class="input-group">
+            <textarea
+              name="message"
+              id="contact-message"
+              placeholder="Pesan"
+              rows="4"
+              style="
+                width: 100%;
+                padding: 1rem;
+                border-radius: 6px;
+                background: var(--bg);
+                color: #fff;
+                border: 1px solid #555;
+              "
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+    <!-- contact section end -->
+
+    <!-- footer start -->
+    <footer>
+      <div class="sosials">
+        <a href="https://www.instagram.com" target="_blank">
+          <i data-feather="instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+          <i data-feather="twitter"></i>
+        </a>
+        <a href="https://facebook.com" target="">
+          <i data-feather="facebook"></i>
+        </a>
+      </div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">kontak</a>
+      </div>
+
+      <div class="credit">
+        <p>Created by <a href="">Jks</a>. | &copy; 2022.</p>
+      </div>
+    </footer>
+    <!-- footer end -->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+    <!-- Popup Modal -->
+    <div id="menuModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <img id="modalImage" src="" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalPrice"></p>
+
+        <div class="qty-box">
+          <button onclick="changeQty(-1)">-</button>
+          <span id="qty">1</span>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+
+        <button class="buy-btn" onclick="addToCart()">
+          Tambah ke Keranjang
+        </button>
+
+        <button class="buy-now-btn" onclick="buyNow()">Beli Sekarang</button>
+      </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartModal" class="cart-modal">
+      <div class="cart-panel">
+        <button class="close-cart" onclick="closeCart()">&times;</button>
+        <h2>Keranjang</h2>
+
+        <div id="cartItems" class="cart-items">
+          <!-- items rendered here -->
+        </div>
+
+        <div class="cart-footer">
+          <div id="cartTotal" class="cart-total">Total: IDR 0</div>
+          <div class="cart-actions">
+            <button class="buy-btn" onclick="checkout()">Checkout</button>
+            <button class="buy-now-btn" onclick="clearCart()">Bersihkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // menarget elemen input search
+      const searchInput = document.querySelector(".search-form input");
+
+      // Jalankan pencarian saat menekan Enter
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const keyword = searchInput.value.toLowerCase().trim();
+
+          // special-case: if user searches for 'home' or 'beranda', go to #home
+          if (keyword === "home" || keyword === "beranda") {
+            const homeEl = document.getElementById("home");
+            if (homeEl) {
+              homeEl.scrollIntoView({ behavior: "smooth", block: "start" });
+              searchForm.classList.remove("active");
+              searchButton.style.display = "inline-block";
+              try {
+                searchInput.value = "";
+              } catch (err) {}
+              return;
+            }
+          }
+
+          // Ambil semua section yang ingin dicari
+          const sections = document.querySelectorAll(
+            "section, .menu-card, .about, .contact, .hero"
+          );
+
+          let found = false;
+
+          sections.forEach((section) => {
+            const text = section.innerText.toLowerCase();
+
+            if (text.includes(keyword)) {
+              found = true;
+
+              // Scroll ke bagian tersebut
+              section.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+
+          searchForm.classList.remove("active");
+          // Jika tidak ditemukan -> tampilkan alert
+          if (!found) {
+            alert("Halaman tidak ditemukan!");
+          }
+          // kosongkan input setelah pencarian
+          try {
+            searchInput.value = "";
+          } catch (err) {}
+        }
+      });
+    </script>
+
+    <div id="customAlert" class="alert-hidden">
+      <p id="alertMessage"></p>
+    </div>
+  </body>
+</html>
