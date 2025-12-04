@@ -289,7 +289,7 @@ body.noscroll {
 }
 
 .about .row .about-img {
-  flex: 1 1 20rem;
+  flex: 1 1 45rem;
 }
 
 .about .row .about-img img {
@@ -776,4 +776,142 @@ footer .credit a {
 .cart-actions {
   display: flex;
   gap: 8px;
+}
+
+/* ===== Popup Form Data Pemesan (Nama + Alamat) ===== */
+#userDataModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+#userDataModal .modal-content {
+  background: #2b2b2b;
+  padding: 20px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+#userDataModal input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #1f1f1f;
+  color: #fff;
+}
+
+#userDataModal button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#userDataModal .close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* ===== Checkout Modal ===== */
+.checkout-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+}
+
+.checkout-panel {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.checkout-panel h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.close-checkout {
+  background: none;
+  border: none;
+  font-size: 28px;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  cursor: pointer;
+}
+
+#checkoutForm label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+#checkoutForm input,
+#checkoutForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#checkoutForm textarea {
+  height: 90px;
+}
+
+.checkout-summary {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.confirm-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #3a3a3a;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
