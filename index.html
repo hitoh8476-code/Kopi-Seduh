@@ -19,10 +19,12 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="CSS/Style.css" />
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <!-- navbar start -->
-    <nav class="navbar">
+    <nav class="navbar" data-aos="fade-down">
       <a href="#" class="navbar-logo">Kopi<span>Seduh</span>.</a>
 
       <div class="navbar-nav">
@@ -52,8 +54,8 @@
 
     <!-- hero section start -->
 
-    <section class="hero" id="home">
-      <main class="content">
+    <section class="hero" id="home" data-aos="fade-up">
+      <main class="content" data-aos="fade-up">
         <h1>Lebih Tenang dalam Satu <span>Seduhan</span></h1>
         <p>
           Kopi-Seduh menyajikan berbagai macam kopi dengan cita rasa terbaik
@@ -65,13 +67,13 @@
     <!-- hero content end -->
 
     <!-- about section start -->
-    <section id="about" class="about">
+    <section id="about" class="about" data-aos="fade-up">
       <h2><span>Tentang </span>Kami</h2>
       <div class="row">
-        <div class="about-img">
+        <div class="about-img" data-aos="zoom-in">
           <img src="img/kami.jpg" alt="Tentang Kami" />
         </div>
-        <div class="content">
+        <div class="content" data-aos="fade-left">
           <h3>Kopi<span>Seduh</span></h3>
           <p>
             Selamat datang di KopiSeduh, rumah bagi secangkir kopi yang diracik
@@ -95,14 +97,14 @@
     <!-- about section end -->
 
     <!-- Menu section start -->
-    <section id="menu" class="menu">
+    <section id="menu" class="menu" data-aos="fade-up">
       <h2><span>Menu </span>Kami</h2>
       <p>
         Selamat datang di Menu KopiSeduh Temukan pilihan minuman dan makanan
         terbaik kami, diseduh dan disiapkan untuk menemani harimu.
       </p>
       <div class="row">
-        <div class="menu-card">
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
           <img
             src="img/menu/ga.jpg"
             alt="Es Kopi Susu Gula Aren"
@@ -387,7 +389,7 @@
     <!-- Menu section end -->
 
     <!-- contact section start -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up">
       <h2><span>Kontak </span>Kami</h2>
       <p>
         Hubungi Kami Kami senang mendengar dari Anda! Baik untuk pertanyaan,
@@ -405,8 +407,11 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           class="map"
-        ></iframe>
-        <form id="contactForm" action="#" method="post">
+          data-aos="zoom-in"
+        >
+          ></iframe
+        >
+        <form id="contactForm" data-aos="fade-left">
           <div class="input-group">
             <i data-feather="user"></i>
             <input
@@ -459,7 +464,7 @@
     <!-- contact section end -->
 
     <!-- footer start -->
-    <footer>
+    <footer data-aos="fade-up">
       <div class="sosials">
         <a href="https://www.instagram.com" target="_blank">
           <i data-feather="instagram"></i>
@@ -536,30 +541,45 @@
     </div>
 
     <!-- Checkout Modal -->
-<div id="checkoutModal" class="checkout-modal">
-  <div class="checkout-panel">
-    <button class="close-checkout" onclick="closeCheckout()">&times;</button>
-    <h2>Checkout</h2>
+    <div id="checkoutModal" class="checkout-modal">
+      <div class="checkout-panel">
+        <button class="close-checkout" onclick="closeCheckout()">
+          &times;
+        </button>
+        <h2>Checkout</h2>
 
-    <form id="checkoutForm">
-      <label for="custName">Nama Lengkap</label>
-      <input type="text" id="custName" placeholder="Masukkan nama..." required>
+        <form id="checkoutForm">
+          <label for="custName">Nama Lengkap</label>
+          <input
+            type="text"
+            id="custName"
+            placeholder="Masukkan nama..."
+            required
+          />
 
-      <label for="custAddress">Alamat Lengkap</label>
-      <textarea id="custAddress" placeholder="Masukkan alamat..." required></textarea>
+          <label for="custAddress">Alamat Lengkap</label>
+          <textarea
+            id="custAddress"
+            placeholder="Masukkan alamat..."
+            required
+          ></textarea>
 
-      <label for="custPhone">No. HP</label>
-      <input type="text" id="custPhone" placeholder="Masukkan nomor HP..." required>
+          <label for="custPhone">No. HP</label>
+          <input
+            type="text"
+            id="custPhone"
+            placeholder="Masukkan nomor HP..."
+            required
+          />
 
-      <div class="checkout-summary">
-        <p id="checkoutTotal">Total: IDR 0</p>
+          <div class="checkout-summary">
+            <p id="checkoutTotal">Total: IDR 0</p>
+          </div>
+
+          <button type="submit" class="confirm-btn">Konfirmasi Pesanan</button>
+        </form>
       </div>
-
-      <button type="submit" class="confirm-btn">Konfirmasi Pesanan</button>
-    </form>
-  </div>
-</div>
-
+    </div>
 
     <script>
       // menarget elemen input search
@@ -623,20 +643,31 @@
       <p id="alertMessage"></p>
     </div>
 
-<!-- ===== Popup Data Pemesan ===== -->
-<div id="userDataModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeUserData()">&times;</span>
-    <h2>Data Pemesan</h2>
+    <!-- ===== Popup Data Pemesan ===== -->
+    <div id="userDataModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeUserData()">&times;</span>
+        <h2>Data Pemesan</h2>
 
-    <input type="text" id="orderName" placeholder="Nama Anda" required>
-    <input type="text" id="orderAddress" placeholder="Alamat Lengkap" required>
-    
+        <input type="text" id="orderName" placeholder="Nama Anda" required />
+        <input
+          type="text"
+          id="orderAddress"
+          placeholder="Alamat Lengkap"
+          required
+        />
 
-    <button onclick="sendToWa()">Kirim Pesanan</button>
-  </div>
-</div>
+        <button onclick="sendToWa()">Kirim Pesanan</button>
+      </div>
+    </div>
 
-
-</body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900, // durasi animasi
+        once: true, // animasi hanya sekali
+        offset: 120, // jarak trigger
+      });
+    </script>
+  </body>
 </html>
